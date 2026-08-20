@@ -107,17 +107,46 @@ Open that URL in your browser.
 
 ## 🔌 API Integration
 
-The application uses a currency exchange-rate API to retrieve currency conversion information.
+This project uses a currency exchange-rate API to fetch real-time conversion rates.
 
-The API request is handled through a custom React Hook:
+The API endpoint accepts a **3-letter currency code** at the end of the URL.
+
+### Example
 
 ```text
-src/hooks/usecurrencyinfo.js
+https://your-api-url.com/v1/currencies/USD.json
 ```
 
-The fetched currency information is then used by the React components to perform the conversion.
+Here:
 
-> **Security Note:** Never commit private API keys or other sensitive credentials to a public GitHub repository. If an API key is required, store it in an environment variable such as `.env` and add `.env` to `.gitignore`.
+* `USD` → Base currency
+* `EUR` → Another supported currency
+* `INR` → Indian Rupee
+
+The application dynamically changes the currency code in the API URL based on the selected currency.
+
+For example:
+
+```text
+USD → /USD.json
+INR → /INR.json
+EUR → /EUR.json
+```
+
+### 🔐 API Key
+
+The API key is kept private and is **not included in this repository**.
+
+If you are running the project locally and the API requires a key.
+
+```
+```
+
+```
+```
+
+> **Note:** Never commit your `.env` file or expose your private API key in a public GitHub repository.
+
 
 ## 🧩 React Concepts Used
 
